@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Akinator using Bayesian Algorithm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% if result %}
+            <div class="result">
+                <h1>🎉 You are thinking of {{ result }}! 🎉</h1>
+            </div>
+        {% else %}
+            <div class="question-box">
+                <h2>Question</h2>
+                <h1>{{ question_text }}</h1>
+                <div class="buttons">
+                    <form method="get">
+                        <input type="hidden" name="question" value="{{ question }}" />
+                        <button type="submit" name="answer" value="1">Yes</button>
+                        <button type="submit" name="answer" value="0">No</button>
+                        <button type="submit" name="answer" value="0.5">Don't know</button>
+                        <button type="submit" name="answer" value="0.75">Probably</button>
+                        <button type="submit" name="answer" value="0.25">Probably Not</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
